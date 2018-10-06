@@ -1,24 +1,25 @@
 <?php
 
-    $clubs = range(1, 13);
-    $diamonds = range(1, 13);
-    $hearts = range(1, 13);
-    $spades = range(1, 13);
+    // $clubs = range(1, 13);
+    // $diamonds = range(1, 13);
+    // $hearts = range(1, 13);
+    // $spades = range(1, 13);
     
-    shuffle($clubs);
-    shuffle($diamonds);
-    shuffle($hearts);
-    shuffle($spades);
+    // shuffle($clubs);
+    // shuffle($diamonds);
+    // shuffle($hearts);
+    // shuffle($spades);
     
-    $suits = array("clubs", "diamonds", "hearts", "spades");
-    $suit = rand(0,3);
+    // $suits = array("clubs", "diamonds", "hearts", "spades");
+    // $suit = rand(0,3);
     
     
-    //Code that doesn't actually do what it's intended to yet
-    //echo $suits[$suit];
+    // //Code that doesn't actually do what it's intended to yet
+    // //echo $suits[$suit];
     
-    echo ${$suits[$suit]}[rand(1,13)];
-    //Code that doesn't actually do what it's intended to yet
+    // echo ${$suits[$suit]}[rand(1,13)];
+    // //echo $diamonds[5];
+    // //Code that doesn't actually do what it's intended to yet
 ?>
 
 
@@ -41,7 +42,7 @@
         
         <div id="main">
         <?php
-            
+            getHand();
         ?> <!--End of PHP code.-->
         
        
