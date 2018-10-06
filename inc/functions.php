@@ -18,6 +18,8 @@
         //in a given player's hand
         public $total = 0;
         
+        public $tester= array("jerry", "terry");
+        
         //The suit and value of a card have the same index,
         //so a 4 of Hearts at index 3 would be represented as
         //$suits[3] = "heart", $values[3] = "4".
@@ -29,7 +31,6 @@
         //   $nf1=array("hearts", "diamonds", "spades");
 //     $nf2=array(5, 8, 1);
 
-      echo $player->name;
     
     
     // $cardss=sizeof($nf1);
@@ -50,7 +51,7 @@
     
     
     
-    echo "<img src='/silverjack/img/clubs/1.png' title='".ucfirst("cardy")."'/>";
+    // echo "<img src='/silverjack/img/$player->name/1.png' title='".ucfirst("cardy")."'/>";
     
     
     
@@ -60,6 +61,7 @@
     
     $counter=0;
     $adder=0;
+
     
     
     
@@ -71,15 +73,40 @@
        
         
          $findtype=$player->suits[$counter];
+         
+             $temptype;
+         
+         if($findtype==0)
+         {
+             $temptype="clubs";
+         }
+         
+         else if($findtype==1)
+         {
+              $temptype="diamonds";
+         }
+         
+          if($findtype==2)
+         {
+              $temptype="hearts";
+         }
+         
+          if($findtype==3)
+         {
+              $temptype="spades";
+         }
+         
+         
+         
          $findvalue=$player->values[$counter];
         
     
       
       
 
-        
+        // /silverjack/img/clubs/1.png
        
-   echo "<img src='/silverjack/img/$findtype/$findvalue.png' title='".ucfirst("card")."'/>";
+   echo "<img src='/silverjack/img/$temptype/$findvalue.png' title='".ucfirst("card")."'/>";
       
          $counter=$counter+1;
         
@@ -197,6 +224,18 @@
         
         echo "<br>";
         
+        
+        // echo $player1->tester[0];
+        
+        for ($i = 1; $i <= 4; $i++) {
+            displayHand($player[$i]);
+        }
+        
+        
+        // displayHand($player1); this is the way its gonna work
+        // displayHand($player2);
+        // displayHand($player3);
+        // displayHand($player4);
         
         //echo $player->name; works on mine but not yours its like it didnt have it at all but when you do your for loop it does why?
         
