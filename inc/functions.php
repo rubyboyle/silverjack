@@ -1,6 +1,6 @@
 <?php
     
-    class playerClass
+    class player
     {
         //Name of the player
         public $name;
@@ -24,7 +24,81 @@
     }
 
 
-    function displayHand(){
+    function displayHand($player){
+        
+        //   $nf1=array("hearts", "diamonds", "spades");
+//     $nf2=array(5, 8, 1);
+
+      echo $player->name;
+    
+    
+    // $cardss=sizeof($nf1);
+    
+     $cardss=sizeof($player->suits);
+    // echo $cardss, "yesss";
+    
+    
+    
+    
+//   echo $player->picture;
+   
+   
+    //  echo $player->name, "<br>"; 
+    // /silverjack/img/clubs/1.png
+    // /cst336/labs/lab3/img/clubs/1.png
+    echo "<br>";
+    
+    
+    
+    echo "<img src='/silverjack/img/clubs/1.png' title='".ucfirst("cardy")."'/>";
+    
+    
+    
+    
+
+    
+    
+    $counter=0;
+    $adder=0;
+    
+    
+    
+    
+    
+  while ($counter!=$cardss)
+  {
+  
+       
+        
+         $findtype=$player->suits[$counter];
+         $findvalue=$player->values[$counter];
+        
+    
+      
+      
+
+        
+       
+   echo "<img src='/silverjack/img/$findtype/$findvalue.png' title='".ucfirst("card")."'/>";
+      
+         $counter=$counter+1;
+        
+        
+  }
+  
+  
+  for($i=0;$i<$cardss;$i++)
+    {
+        $adder=$adder+$player->values[$i];
+    }
+    
+    echo " Score: ", $adder;
+  
+  echo "<br>";
+    echo $player->name;
+    echo "<br>";
+    // echo" works<br>";
+    // echo "definitely<br>";
     
     }
 
@@ -42,10 +116,10 @@
         $spades = range(1, 13);
         
         //Create the four player variables
-        $player1 = new playerClass();
-        $player2 = new playerClass();
-        $player3 = new playerClass();
-        $player4 = new playerClass();
+        $player1 = new player();
+        $player2 = new player();
+        $player3 = new player();
+        $player4 = new player();
         
         //An array of the possible suits for reference
         $suits = array("clubs", "diamonds", "hearts", "spades");
@@ -63,7 +137,7 @@
         for ($i = 1; $i <= 4; $i++) {
             //To get past a warning message
             if (!isset($player{$i})) 
-                $player{$i} = new playerClass();
+                $player{$i} = new player();
             
             //Initialize total of the current player at 0 for counting later
             $player{$i}->total = 0;
@@ -121,7 +195,11 @@
             echo "<br>";
         }
         
-        displayHand($player1, $player2, $player3, $player4);
+        echo "<br>";
+        
+        
+        //echo $player->name; works on mine but not yours its like it didnt have it at all but when you do your for loop it does why?
+        
     
     }
 ?>
