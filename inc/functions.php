@@ -206,21 +206,21 @@
         }
         
         //Debugging
-        for ($i = 1; $i <= 4; $i++) {
-            echo "<br>";
-            echo "Suits in order: ";
-            print_r($player{$i}->suits);
-            echo "<br>";
-            echo "Values in order: ";
-            print_r($player{$i}->values);
-            echo "<br>";
-            echo "Total = ".$player{$i}->total."";
-            echo "<br>";
-            echo "Name = ".$player{$i}->name."";
-            echo "<br>";
-            echo "Picture = ".$player{$i}->picture."";
-            echo "<br>";
-        }
+        // for ($i = 1; $i <= 4; $i++) {
+        //     echo "<br>";
+        //     echo "Suits in order: ";
+        //     print_r($player{$i}->suits);
+        //     echo "<br>";
+        //     echo "Values in order: ";
+        //     print_r($player{$i}->values);
+        //     echo "<br>";
+        //     echo "Total = ".$player{$i}->total."";
+        //     echo "<br>";
+        //     echo "Name = ".$player{$i}->name."";
+        //     echo "<br>";
+        //     echo "Picture = ".$player{$i}->picture."";
+        //     echo "<br>";
+        // }
         
         echo "<br>";
         
