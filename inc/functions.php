@@ -28,6 +28,12 @@
 
     function displayHand($player){
         
+        
+        echo "<img src='/silverjack/img/$player->picture.png' title='".ucfirst("person")."'/>";
+        
+        
+        
+        
         //   $nf1=array("hearts", "diamonds", "spades");
 //     $nf2=array(5, 8, 1);
 
@@ -47,7 +53,7 @@
     //  echo $player->name, "<br>"; 
     // /silverjack/img/clubs/1.png
     // /cst336/labs/lab3/img/clubs/1.png
-    echo "<br>";
+    
     
     
     

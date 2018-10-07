@@ -19,9 +19,6 @@
         <?php
             getHand();
         ?>
-    
-
-    
         </div>
     </body>
 </html>
