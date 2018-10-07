@@ -1,5 +1,5 @@
 <?php
-    
+    session_start();    //start or resume an existing session
     
     function totalTime() {
         
@@ -11,7 +11,7 @@
         $elapsedTime = microtime(true) - $startSecond;
         
         //prints out elapsed time
-        echo "<h3>$elapsedTime</h3>";
+        echo "<h3>".($elapsedTime/1000000000)."</h3>";
         
         echo "<br>";
         
@@ -26,7 +26,7 @@
                 }
                     
                     echo "<h3>Avg Elapsed Time: </h3>";
-                    echo "<h3>" . $_SESSION["avgSec"]/$_SESSION["gameCount"] . "</h3>";
+                    echo "<h3>" . ($_SESSION["avgSec"]/$_SESSION["gameCount"])/1000000000 . "</h3>";
                     echo "<br>";
                     echo "<h3># of games played: </h3>";
                     echo "<h3>" . $_SESSION["gameCount"] . "</h3>";
@@ -175,30 +175,37 @@
         $score = 0;
         $points = 0;
         
-        $close[0] = abs($player1->total - 42); 
-        $close[1] = abs($player2->total - 42); 
-        $close[2] = abs($player3->total - 42); 
-        $close[3] = abs($player4->total - 42); 
+        $close[0] = $player1->total - 42; 
+        $close[1] = $player2->total - 42; 
+        $close[2] = $player3->total - 42; 
+        $close[3] = $player4->total - 42; 
         
-        asort($close);
+        arsort($close);
+        $close = array_values($close);
+        // print_r($close);
         
-        if(abs($player1->total - 42) == $close[0]){
-            echo "<h2>Player 1 is the winner!</h2>";
+        while($close[0] > 0 ){
+            array_shift($close);
+            // print_r($close);
+        }
+        
+        if(($player1->total - 42) == $close[0] && $player1->total <= 42){
+            echo "<h2>$player1->name is the winner!</h2>";
             echo "<br>";
             $points = $player1->total;
         } 
-        if(abs($player2->total - 42) == $close[0]){
-            echo "<h2>Player 2 is the winner!</h2>";
+        if(($player2->total - 42) == $close[0] && $player2->total <= 42){
+            echo "<h2>$player2->name is the winner!</h2>";
             echo "<br>";
             $points = $player2->total;
         }
-        if (abs($player3->total - 42) == $close[0]){
-            echo "<h2>Player 3 is the winner!</h2>";
+        if (($player3->total - 42) == $close[0] && $player3->total <= 42){
+            echo "<h2>$player3->name is the winner!</h2>";
             echo "<br>";
             $points = $player3->total;
         }
-        if(abs($player4->total - 42) == $close[0]){
-            echo "<h2>Player 4 is the winner!</h2>";
+        if(($player4->total - 42) == $close[0] && $player4->total <= 42){
+            echo "<h2>$player4->name is the winner!</h2>";
             echo "<br>";
             $points = $player4->total;
         }
@@ -217,7 +224,11 @@
             $score += $player4->total; 
         }
         
-        echo "<h2> You won $score points!!! </h2>";
+        if($score == 0){
+            echo "<h2> Draw!! Nobody wins. </h2>";
+        } else {
+            echo "<h2> You won $score points!!! </h2>";
+        }
         
         // for($i = 1; $i < 4; $i++){
         //     if(${"player" . $i}->total != $points){
@@ -226,11 +237,11 @@
         // }
         
         
-    //     foreach($values as $item){ //find $values closest to 42
-    //         if ($closest === null || abs($search - $closest) > abs($item - $search)) {
-    //      $closest = $item;
-    //   }
-    //     }
+        //     foreach($values as $item){ //find $values closest to 42
+        //         if ($closest === null || abs($search - $closest) > abs($item - $search)) {
+        //      $closest = $item;
+        //   }
+        //     }
         
         
     } // displayWinners() ends
@@ -253,10 +264,10 @@
         $suits = array("clubs", "diamonds", "hearts", "spades");
         
         //An array of the possible names for reference
-        $names = array("A", "B", "C", "D");
+        $names = array("Circle", "Square", "Triangle", "Hexagon");
         
         //Array of the possible pictures for reference
-        $pictures = array("APic", "BPic", "CPic", "DPic");
+        $pictures = array("Circle", "Square", "Triangle", "Hexagon");
         
         //Array used to pick the players and pictures by index
         $pickPlayer = range(0,3);
@@ -332,7 +343,7 @@
             displayHand($player[$i]);
         }
         
-        displayWinners($player1, $player2, $player3, $player4);
+        displayWinners($player[1], $player[2], $player[3], $player[4]);
         
         
         // displayHand($player1); this is the way its gonna work
