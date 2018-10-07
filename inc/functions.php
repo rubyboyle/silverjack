@@ -136,7 +136,55 @@
     }
 
 
-    function displayWinners(){
+    function displayWinners($player1, $player2, $player3, $player4){
+        $close = array();
+        $points = array();
+        $winner = array();
+        
+        $total = 0;
+        $counter = 0;
+        
+        $close[0] = abs($player1->total - 42); 
+        $close[1] = abs($player2->total - 42); 
+        $close[2] = abs($player3->total - 42); 
+        $close[3] = abs($player4->total - 42); 
+        
+        asort($close);
+        
+        if(abs($player1->total - 42) == $close[0]){
+            echo "<h2>Player 1 is the winner!</h2>";
+            
+            $counter++;
+        } 
+        if(abs($player2->total - 42) == $close[0]){
+            echo "<h2>Player 2 is the winner!</h2>";
+            $counter++;
+        }
+        if (abs($player3->total - 42) == $close[0]){
+            echo "Player 3 is the winner!";
+            $counter++;
+        }
+        if(abs($player4->total - 42) == $close[0]){
+            echo "Player 4 is the winner!";
+            $counter++;
+        }
+        
+        $points[0] = $player1->total;
+        $points[1] = $player2->total;
+        $points[2] = $player3->total;
+        $points[3] = $player4->total;
+        
+        
+    //     foreach($values as $item){ //find $values closest to 42
+    //         if ($closest === null || abs($search - $closest) > abs($item - $search)) {
+    //      $closest = $item;
+    //   }
+    //     }
+        
+        
+        
+        
+        
     
     }
     
