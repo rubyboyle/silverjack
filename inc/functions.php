@@ -138,7 +138,7 @@
 
     function displayWinners($player1, $player2, $player3, $player4){
         $close = array();
-        $points = array();
+        $points = 0;
         $winner = array();
         
         $total = 0;
@@ -153,26 +153,29 @@
         
         if(abs($player1->total - 42) == $close[0]){
             echo "<h2>Player 1 is the winner!</h2>";
-            
+            $points = $player1->total;
             $counter++;
         } 
         if(abs($player2->total - 42) == $close[0]){
             echo "<h2>Player 2 is the winner!</h2>";
+            $points = $player2->total;
             $counter++;
         }
         if (abs($player3->total - 42) == $close[0]){
             echo "Player 3 is the winner!";
+            $points = $player3->total;
             $counter++;
         }
         if(abs($player4->total - 42) == $close[0]){
             echo "Player 4 is the winner!";
+            $points = $player4->total;
             $counter++;
         }
         
-        $points[0] = $player1->total;
-        $points[1] = $player2->total;
-        $points[2] = $player3->total;
-        $points[3] = $player4->total;
+        // $points[0] = $player1->total;
+        // $points[1] = $player2->total;
+        // $points[2] = $player3->total;
+        // $points[3] = $player4->total;
         
         
     //     foreach($values as $item){ //find $values closest to 42
