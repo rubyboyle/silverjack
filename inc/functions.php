@@ -141,7 +141,6 @@
         
         $score = 0;
         $points = 0;
-        $counter = 0;
         
         $close[0] = abs($player1->total - 42); 
         $close[1] = abs($player2->total - 42); 
@@ -154,25 +153,21 @@
             echo "<h2>Player 1 is the winner!</h2>";
             echo "<br>";
             $points = $player1->total;
-            $counter++;
         } 
         if(abs($player2->total - 42) == $close[0]){
             echo "<h2>Player 2 is the winner!</h2>";
             echo "<br>";
             $points = $player2->total;
-            $counter++;
         }
         if (abs($player3->total - 42) == $close[0]){
             echo "<h2>Player 3 is the winner!</h2>";
             echo "<br>";
             $points = $player3->total;
-            $counter++;
         }
         if(abs($player4->total - 42) == $close[0]){
             echo "<h2>Player 4 is the winner!</h2>";
             echo "<br>";
             $points = $player4->total;
-            $counter++;
         }
         
         
@@ -303,6 +298,8 @@
         for ($i = 1; $i <= 4; $i++) {
             displayHand($player[$i]);
         }
+        
+        displayWinners($player1, $player2, $player3, $player4);
         
         
         // displayHand($player1); this is the way its gonna work
