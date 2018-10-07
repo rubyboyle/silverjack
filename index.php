@@ -19,6 +19,10 @@
         <?php
             getHand();
         ?>
+        
+            <div id="elapsedTime">
+                    <?= totalTime(); ?>
+            </div>
         </div>
     </body>
 </html>

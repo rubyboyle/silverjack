@@ -1,5 +1,38 @@
 <?php
     
+    
+    function totalTime() {
+        
+        //global variable for the beginning second
+        global $startSecond;
+        
+        //prints out elapsed header
+        echo "<h3>Elapsed Time: </h3>";
+        $elapsedTime = microtime(true) - $startSecond;
+        
+        //prints out elapsed time
+        echo "<h3>$elapsedTime</h3>";
+        
+        echo "<br>";
+        
+                if (!isset($_SESSION["avgSec"])) {
+                    $_SESSION["avgSec"] = $elapsedTime;
+                } else {
+                    $_SESSION["avgSec"] += $elapsedTime;
+                } if (!isset($_SESSION["gameCount"])) {
+                    $_SESSION["gameCount"] = 1;
+                } else {
+                    $_SESSION["gameCount"]++;
+                }
+                    
+                    echo "<h3>Avg Elapsed Time: </h3>";
+                    echo "<h3>" . $_SESSION["avgSec"]/$_SESSION["gameCount"] . "</h3>";
+                    echo "<br>";
+                    echo "<h3># of games played: </h3>";
+                    echo "<h3>" . $_SESSION["gameCount"] . "</h3>";
+    }
+    
+    
     class player
     {
         //Name of the player
