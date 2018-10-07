@@ -138,10 +138,9 @@
 
     function displayWinners($player1, $player2, $player3, $player4){
         $close = array();
-        $points = 0;
-        $winner = array();
         
-        $total = 0;
+        $score = 0;
+        $points = 0;
         $counter = 0;
         
         $close[0] = abs($player1->total - 42); 
@@ -153,29 +152,50 @@
         
         if(abs($player1->total - 42) == $close[0]){
             echo "<h2>Player 1 is the winner!</h2>";
+            echo "<br>";
             $points = $player1->total;
             $counter++;
         } 
         if(abs($player2->total - 42) == $close[0]){
             echo "<h2>Player 2 is the winner!</h2>";
+            echo "<br>";
             $points = $player2->total;
             $counter++;
         }
         if (abs($player3->total - 42) == $close[0]){
-            echo "Player 3 is the winner!";
+            echo "<h2>Player 3 is the winner!</h2>";
+            echo "<br>";
             $points = $player3->total;
             $counter++;
         }
         if(abs($player4->total - 42) == $close[0]){
-            echo "Player 4 is the winner!";
+            echo "<h2>Player 4 is the winner!</h2>";
+            echo "<br>";
             $points = $player4->total;
             $counter++;
         }
         
-        // $points[0] = $player1->total;
-        // $points[1] = $player2->total;
-        // $points[2] = $player3->total;
-        // $points[3] = $player4->total;
+        
+        if($player1->total != $points){
+            $score += $player1->total; 
+        }
+        if($player2->total != $points){
+            $score += $player2->total; 
+        }
+        if($player3->total != $points){
+            $score += $player3->total; 
+        }
+        if($player4->total != $points){
+            $score += $player4->total; 
+        }
+        
+        echo "<h2> You won $score points!!! </h2>";
+        
+        // for($i = 1; $i < 4; $i++){
+        //     if(${"player" . $i}->total != $points){
+        //         $score += ${"player" . $i}->total;
+        //     }
+        // }
         
         
     //     foreach($values as $item){ //find $values closest to 42
@@ -185,11 +205,7 @@
     //     }
         
         
-        
-        
-        
-    
-    }
+    } // displayWinners() ends
     
     function getHand(){
         
